@@ -4,9 +4,9 @@
   /* Add margin to create space between cards */
 }
 .item {
-  width: 8rem;
-  height: 32rem;
-  margin-bottom: 20px;
+  width: 350px;
+  height: 550px;
+
   display: flex;
   position: relative;
   align-items: flex-start;
@@ -28,10 +28,10 @@
 
 .content {
   gap: 16px;
-  top: 280.30352783203125px;
-  left: 23.206342697143555px;
-  width: 375.1731262207031px;
-  height: 113.8733139038086px;
+  top: 280px;
+  left: 23px;
+  width: 375px;
+  height: 113px;
   display: flex;
   position: absolute;
   align-items: flex-start;
@@ -95,7 +95,7 @@
 .image {
   top: 1rem;
   left: 1rem;
-  width: 22rem;
+  width: 300rem;
   height: 15rem;
   position: absolute;
   border-radius: 16px;

@@ -13,14 +13,14 @@ const Items = ({ accommodations }) => {
   };
   return (
     <div className={styles["card-container"]}>
-      <div className="row  row-cols-md-3 g-3">
+      <div className="row  row-cols-md-4 g-4">
         {accommodations.map((accommodation) => (
           <Item
             id={accommodation.id}
             title={accommodation.title}
             price={accommodation.price}
             location={accommodation.location}
-            image={accommodation.image}
+            images={accommodation.image}
             onClick={() => handleItemClick(accommodation.id)}
           />
         ))}

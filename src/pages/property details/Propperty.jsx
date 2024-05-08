@@ -15,13 +15,13 @@ import axios from "axios";
 
 const PropertyDetails = (props) => {
   //fetch data details
-  const { id } = useParams();
+  // const { id } = useParams();
   const [item, setItem] = useState(null);
 
   useEffect(() => {
     // Fetch item details from the backend API
     axios
-      .get(`http://your-backend-api/details/${id}`)
+      .get(`http://localhost:8000/items/${id}`)
       .then((response) => {
         setItem(response.data);
       })
