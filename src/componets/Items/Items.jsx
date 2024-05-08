@@ -1,39 +1,40 @@
 // AccommodationList.jsx
-import React from 'react';
-import Item from '../Item/Item';
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import Item from "../Item/Item";
 import styles from "./items.module.css";
-import { Link } from "react-router-dom";
 
-const Items = ({ accommodations  }) => {
+const Items = ({ accommodations }) => {
+  const navigate = useNavigate();
+
+  const handleItemClick = (itemId) => {
+    // Navigate to the details page of the item
+    navigate(`/details/${itemId}`);
+  };
   return (
     <div className={styles["card-container"]}>
-    <div className="row  row-cols-md-3 g-3">
-    {accommodations.map( accommodation  => (
-      <Link to={`/details/${accommodation.id}`}>
+      <div className="row  row-cols-md-3 g-3">
+        {accommodations.map((accommodation) => (
           <Item
-           
             id={accommodation.id}
             title={accommodation.title}
             price={accommodation.price}
             location={accommodation.location}
             image={accommodation.image}
-           
-           
+            onClick={() => handleItemClick(accommodation.id)}
           />
-          </Link>
-          ))}
-    </div>
+        ))}
+      </div>
     </div>
   );
 };
 
 export default Items;
 
-
 // const Items = ({ accommodations ,likedItems, onToggleLike }) => {
 //   return (
 //     <div className={styles["card-container"]}>
-//     <div className="row  row-cols-md-4 g-4">
+//     <div className="row  row-cols-md-3 g-3">
 //     {accommodations.map( accommodation  => (
 //           <Item
 //             key={index}
@@ -44,33 +45,7 @@ export default Items;
 //             image={accommodation.image}
 //             isLiked={likedItems.includes(accommodation.id)}
 //           onToggleLike={() => onToggleLike(accommodation.id)}
-           
-//           />
-//           ))}
-//     </div>
-//     </div>
-//   );
-// };
-
-
-
-
-
-// const Items = ({ accommodations ,likedItems, onToggleLike }) => {
-//   return (
-//     <div className={styles["card-container"]}>
-//     <div className="row  row-cols-md-4 g-4">
-//     {accommodations.map( accommodation  => (
-//           <Item
-//             key={index}
-//             id={accommodation.id}
-//             title={accommodation.title}
-//             price={accommodation.price}
-//             location={accommodation.location}
-//             image={accommodation.image}
-//             isLiked={likedItems.includes(accommodation.id)}
-//           onToggleLike={() => onToggleLike(accommodation.id)}
-           
+//           onClick={() => handleItemClick(accommodation.id)}
 //           />
 //           ))}
 //     </div>

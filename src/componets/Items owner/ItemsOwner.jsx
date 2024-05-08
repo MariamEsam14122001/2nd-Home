@@ -1,17 +1,16 @@
 // ItemsOwner.jsx
 import React from "react";
-//import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import ItemOwner from "../Item owner/ItemOwner";
 import styles from "./items.module.css";
 
 const ItemsOwner = ({ accommodations, onDelete }) => {
-  //const history = useHistory(); // Initialize useHistory hook
+  const navigate = useNavigate(); // Initialize useNavigate hook
 
-  // Function to navigate to the edit page
-  // const handleEdit = (propertyId) => {
-  //   // Navigate to the edit page with the property ID as a parameter
-  //   history.push(`/edit/${propertyId}`);
-  // };
+  const handleEdit = (itemId) => {
+    // Navigate to the details page of the item
+    navigate(`/details/${itemId}`);
+  };
 
   return (
     <div className={styles["card-container"]}>
@@ -25,7 +24,7 @@ const ItemsOwner = ({ accommodations, onDelete }) => {
             location={accommodation.location}
             image={accommodation.image}
             onDelete={() => onDelete(accommodation.id)}
-            // onEdit={handleEdit} // Pass the handleEdit function as onEdit prop
+            onClick={() => handleEdit(accommodation.id)}
           />
         ))}
       </div>

@@ -6,6 +6,9 @@ import home from "./up.png";
 import Welcome from "../../componets/Welcome/Welcome";
 
 const OwnersEdit = () => {
+  //fetch data details
+  const { id } = useParams();
+
   const cities = ["Alexandria", "Aswan", "Cairo"];
 
   const [propertyData, setPropertyData] = useState({
@@ -30,7 +33,7 @@ const OwnersEdit = () => {
   const fetchPropertyData = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:8000/api/properties/${id}"
+        `http://localhost:8000/api/properties/${id}`
       );
       setPropertyData(response.data);
     } catch (error) {
@@ -61,7 +64,7 @@ const OwnersEdit = () => {
       }
 
       const response = await axios.put(
-        "http://localhost:8000/api/properties/${id}",
+        `http://localhost:8000/api/properties/${id}`,
         formData,
         {
           headers: {

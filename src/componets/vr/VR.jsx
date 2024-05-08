@@ -1,20 +1,15 @@
 import React from "react";
+import "aframe";
 import styles from "./vr.module.css";
 
 const PanoramaViewer = ({ imageUrl }) => {
   return (
     <div className={styles["panorama-container"]}>
-      <a href={imageUrl} target="_blank" rel="noopener noreferrer">
-        <img
-          src={imageUrl}
-          alt="Panorama"
-          className={styles["panorama-image"]}
-        />
-      </a>
+      <a-scene className={styles["overlay"]}>
+        <a-sky src={imageUrl}></a-sky>
+      </a-scene>
     </div>
   );
 };
 
 export default PanoramaViewer;
-
-/*<img src={imageUrl} alt="Panorama" className={styles["panorama-image"]} />*/

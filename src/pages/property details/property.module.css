@@ -63,6 +63,18 @@
   border: 5px;
   border-style: solid;
   border-color: rgba(172, 233, 252, 0.548);
+ 
+}
+
+
+.panorama-image {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  
 }
 
 .rentdetails {
@@ -213,7 +225,7 @@
   text-decoration: none;
 }
 .vrbutton {
-  top: 950px;
+  top: 550px;
   left: 350px;
   width: 880px;
   height: 81px;
@@ -222,7 +234,7 @@
   background-color: rgba(9, 192, 248, 0.507);
 }
 .textbuttonvr {
-  top: 970px;
+  top: 570px;
   left: 570px;
   color: rgb(34, 32, 32);
   height: auto;

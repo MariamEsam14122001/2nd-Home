@@ -4,7 +4,17 @@ import loc from "./location.png";
 
 import img from "./delete.svg";
 
-function ItemOwner({ id, title, price, location, image, onDelete, onEdit }) {
+function ItemOwner({
+  id,
+  title,
+  price,
+  location,
+  description,
+  shared_or_individual,
+  image,
+  onDelete,
+  onEdit,
+}) {
   const handleDelete = () => {
     onDelete();
   };
@@ -23,12 +33,12 @@ function ItemOwner({ id, title, price, location, image, onDelete, onEdit }) {
                   <span className={styles["text"]}>{title}</span>
                   <span className={styles["text2"]}>{price}</span>
                 </div>
-                <p>Discription</p>
+                <p>{description}</p>
                 <div className={styles["frame52"]}>
                   <img src={loc} className={styles["locationonblack24dp2"]} />
                   <span className={styles["text4"]}>{location}</span>
                 </div>
-                <span className={styles["text"]}>Shared</span>
+                <span className={styles["text"]}>{shared_or_individual}</span>
                 <span className={styles["text"]}>0111111111</span>
               </div>
               <img src={image} alt={title} className={styles["image"]} />
