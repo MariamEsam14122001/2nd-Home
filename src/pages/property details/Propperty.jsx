@@ -15,7 +15,7 @@ import axios from "axios";
 
 const PropertyDetails = (props) => {
   //fetch data details
-  // const { id } = useParams();
+  const { id } = useParams();
   const [item, setItem] = useState(null);
 
   useEffect(() => {

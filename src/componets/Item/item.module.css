@@ -4,7 +4,7 @@
   /* Add margin to create space between cards */
 }
 .item {
-  width: 350px;
+  width: 250px;
   height: 550px;
 
   display: flex;
