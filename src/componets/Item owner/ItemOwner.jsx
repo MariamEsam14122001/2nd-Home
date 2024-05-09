@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./item.module.css";
 import loc from "./location.png";
-
+import axios from "axios";
 import img from "./delete.svg";
 
 function ItemOwner({
@@ -13,19 +13,29 @@ function ItemOwner({
   shared_or_individual,
   image,
   onDelete,
-  onEdit,
 }) {
-  const handleDelete = () => {
-    onDelete();
+  const handleDelete = async () => {
+    try {
+      // Make an HTTP DELETE request to the backend API
+      const response = await axios.delete(
+        `http://your-backend-api/items/${id}`
+      );
+
+      // Handle the response as needed (e.g., display a success message)
+      console.log("Item deleted successfully:", response.data);
+
+      // Call the onDelete callback function to update the UI or perform any other action
+      onDelete(id);
+    } catch (error) {
+      // Handle any errors that occur during the request
+      console.error("Error deleting item:", error);
+    }
   };
 
-  const handleEditClick = () => {
-    onEdit(id); // Pass the property id to the onEdit function
-  };
   return (
     <>
       <div>
-        <div className={styles["card"]} onClick={handleEditClick}>
+        <div className={styles["card"]}>
           <div className="col card ">
             <div className={styles["item"]}>
               <div className={styles["content"]}>
