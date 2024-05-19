@@ -6,7 +6,7 @@ import img7 from "./provide.png";
 import StarRating from "../../componets/stars/Star-rate";
 import HeartButton from "../../componets/heart/Heart";
 import VRList from "../../componets/VRList/VRList";
-import ImagesList from "../../componets/imagesList/imagesList";
+import ImagesList from "../../componets/imagesList/imagesList.jsx";
 import img1 from "../contact&about/line.png";
 import Header from "../../componets/header/Header";
 import { useParams } from "react-router-dom";

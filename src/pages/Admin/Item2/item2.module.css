@@ -1,20 +1,24 @@
 .card {
-  margin-left: 50px;
+  margin-left: 400px ;
   margin-bottom: 50px;
+ 
 }
 .item {
-  width: 13rem;
-  height: 32rem;
-  margin-bottom: 20px;
+  width: 50px;
+  height: 550px;
+
   display: flex;
   position: relative;
   align-items: flex-start;
   flex-shrink: 1;
-  background-color: rgba(38, 212, 243, 0.479);
-  left: 400px;
+  background-color: rgba(255, 255, 255, 1);
+ 
+
+    
 }
 
 .wishlist {
+ 
   top: 29rem;
   left: 20rem;
   width: 64px;
@@ -24,10 +28,10 @@
 
 .content {
   gap: 16px;
-  top: 280.30352783203125px;
-  left: 23.206342697143555px;
-  width: 375.1731262207031px;
-  height: 113.8733139038086px;
+  top: 280px;
+  left: 23px;
+  width: 375px;
+  height: 113px;
   display: flex;
   position: absolute;
   align-items: flex-start;
@@ -52,6 +56,8 @@
   font-stretch: normal;
   text-decoration: none;
 }
+
+
 
 .text2 {
   color: rgba(232, 151, 75, 1);
@@ -89,7 +95,7 @@
 .image {
   top: 1rem;
   left: 1rem;
-  width: 11rem;
+  width: 30rem;
   height: 15rem;
   position: absolute;
   border-radius: 16px;
@@ -99,3 +105,5 @@
   left: 112px;
   position: absolute;
 }
+
+

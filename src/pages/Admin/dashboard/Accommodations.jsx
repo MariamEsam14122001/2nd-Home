@@ -2,7 +2,7 @@ import React from "react";
 //import styles from "./AdminDashboard.module.css";
 //import { Link } from "react-router-dom";
 import Side from "./Sidebarcomponents";
-import Items from "../Items/Items";
+import Items from "../Items2/Items2.jsx";
 const accommodations = [
   {
     id: 1,

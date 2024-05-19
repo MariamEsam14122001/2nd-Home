@@ -1,4 +1,4 @@
-import img from "../contact&about/logo3.svg";
+import img from "./logo3.svg";
 import React, { useState } from "react";
 import styles from "./sidebarcomponents.module.css";
 import { Link } from "react-router-dom";
@@ -54,15 +54,15 @@ const Side = () => {
             )}
           </ul>
           <ul className={styles.button1}>
-            <Link to="accomodations">Accommodations</Link>
+            <Link to="/accomodations">Accommodations</Link>
           </ul>
           <ul className={styles.button2}>
-            <Link to="/">admin</Link>
+            <Link to="/Admin">admin</Link>
           </ul>
           <ul className={styles.button3}>Settings</ul>
           <ul className={styles.button4}>Analytics</ul>
           <ul className={styles.button5}>
-            <Link to="support">Support</Link>
+            <Link to="/support">Support</Link>
           </ul>
         </ul>
       </div>

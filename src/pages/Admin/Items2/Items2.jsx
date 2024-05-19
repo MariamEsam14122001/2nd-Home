@@ -6,7 +6,7 @@ import styles from "./items2.module.css";
 const Items2 = ({ accommodations }) => {
   return (
     <div className={styles["card-container"]}>
-      <div className="row  row-cols-3 g-3">
+      <div className="row  row-cols-2 g-2">
         {accommodations.map((accommodation) => (
           <div className="col" key={accommodation.id}>
             <Item2
