@@ -3,8 +3,8 @@ import red from "./red-heart-icon.svg";
 import empty from "./empty_heart.svg";
 //import { useWishlist } from "../../Context/WishlistContext";
 
-function HeartButton({id}) {
-   // const { wishlist, addToWishlist, removeFromWishlist } = useWishlist();
+function HeartButton({ id }) {
+  // const { wishlist, addToWishlist, removeFromWishlist } = useWishlist();
 
   // const handleToggleLike = () => {
   //   if (wishlist.includes(id)) {
