@@ -9,13 +9,17 @@ const Items = ({ accommodations }) => {
     <div className={styles["card-container"]}>
       <div className="row  row-cols-md-3 g-3">
         {accommodations.map((accommodation) => (
-          <Link to={`/details/${accommodation.id}`}>
+          <Link
+            to={`/details/${accommodation.id}`}
+            state={{ item: accommodation }}
+            key={accommodation.id}
+          >
             <Item
               id={accommodation.id}
               title={accommodation.title}
               price={accommodation.price}
               location={accommodation.location}
-              images={accommodation.image}
+              image={accommodation.image}
               shared_or_individual={accommodation.shared_or_individual}
             />
           </Link>
@@ -32,7 +36,11 @@ export default Items;
 //     <div className={styles["card-container"]}>
 //     <div className="row  row-cols-md-3 g-3">
 //     {accommodations.map( accommodation  => (
-// <Link to={`/details/${accommodation.id}`}>
+// <Link
+// to={`/details/${accommodation.id}`}
+// state={{ item: accommodation }}
+// key={accommodation.id}
+// >
 //           <Item
 //             key={index}
 //             id={accommodation.id}

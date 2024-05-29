@@ -9,26 +9,13 @@ import VRList from "../../componets/VRList/VRList";
 import ImagesList from "../../componets/imagesList/imagesList.jsx";
 import img1 from "../contact&about/line.png";
 import Header from "../../componets/header/Header";
-import { useParams } from "react-router-dom";
+//import { useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import img from "./image.jpg";
-import axios from "axios";
 
 const PropertyDetails = (props) => {
-  //fetch data details
-  const { id } = useParams();
-  const [item, setItem] = useState(null);
-
-  useEffect(() => {
-    // Fetch item details from the backend API
-    axios
-      .get(`http://localhost:8000/items/${id}`)
-      .then((response) => {
-        setItem(response.data);
-      })
-      .catch((error) => {
-        console.error("Error fetching item details:", error);
-      });
-  }, [id]);
+  const location = useLocation();
+  const { item } = location.state;
 
   //Panorama show
   const [showPanorama, setShowPanorama] = useState(false);
