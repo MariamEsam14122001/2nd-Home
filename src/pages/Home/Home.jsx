@@ -10,12 +10,13 @@ import accommodationsData from "./accommodations.json";
 import SearchBar from "../../componets/SearchBar/SearchBar";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { ItemContext } from "../../Context/itemContext.jsx";
 import Items from "../../componets/Items/Items";
 
 const Home = () => {
   //recommended
   const [items, setItems] = useState([]);
-
+  //const { setSelectedItem } = useContext(ItemContext);
   useEffect(() => {
     fetchItems();
   }, []);
@@ -55,6 +56,7 @@ const Home = () => {
         <AccommodationList accommodations={accommodationsData}/>*/}
 
         <Items accommodations={items} />
+        {/* <Items accommodations={items} onItemSelect={setSelectedItem} /> */}
 
         <Footer />
       </div>

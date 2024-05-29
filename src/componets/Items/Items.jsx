@@ -31,6 +31,33 @@ const Items = ({ accommodations }) => {
 
 export default Items;
 
+// const Items = ({ accommodations, onItemSelect }) => {
+//   return (
+//     <div className={styles["card-container"]}>
+//       <div className="row  row-cols-md-3 g-3">
+//         {accommodations.map((accommodation) => (
+//           <Link
+//   to={`/details/${accommodation.id}`}
+//   onClick={() => onItemSelect(accommodation)}
+//   key={accommodation.id}
+// >
+//             <Item
+//               id={accommodation.id}
+//               title={accommodation.title}
+//               price={accommodation.price}
+//               location={accommodation.location}
+//               image={accommodation.image}
+//               shared_or_individual={accommodation.shared_or_individual}
+//             />
+//           </Link>
+//         ))}
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Items;
+
 // const Items = ({ accommodations ,likedItems, onToggleLike }) => {
 //   return (
 //     <div className={styles["card-container"]}>
