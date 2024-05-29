@@ -9,13 +9,20 @@ import VRList from "../../componets/VRList/VRList";
 import ImagesList from "../../componets/imagesList/imagesList.jsx";
 import img1 from "../contact&about/line.png";
 import Header from "../../componets/header/Header";
-//import { useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import img from "./image.jpg";
+//import { ItemContext } from "../../Context/itemContext.jsx";
 
 const PropertyDetails = (props) => {
   const location = useLocation();
   const { item } = location.state;
+
+  // const { selectedItem: item } = useContext(ItemContext);
+
+  // if (!item) {
+  //   return <div>Loading...</div>;
+  // }
 
   //Panorama show
   const [showPanorama, setShowPanorama] = useState(false);
