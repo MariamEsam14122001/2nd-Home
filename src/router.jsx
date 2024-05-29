@@ -19,34 +19,39 @@ import Provider from "./pages/Admin/dashboard/ProvidersAccounts.jsx";
 import Accomodations from "./pages/Admin/dashboard/Accommodations.jsx";
 import Dectivated from "./pages/Admin/dashboard/Deactivatedaccounts.jsx";
 import User from "./pages/Admin/dashboard/UsersAccounts.jsx";
+import PrivateRoute from "./Context/PrivateRoute.jsx";
 
 const router = createBrowserRouter([
   { path: "/", element: <App /> },
   { path: "/Getstarted", element: <UserOwner /> },
   { path: "/Signup/:userType", element: <Signup /> },
   { path: "/Login", element: <Login /> },
-  { path: "/Admin", element: <Admin /> },
+  { path: "/Admin", element: <PrivateRoute element={<Admin />} /> },
   { path: "/search", element: <SearchPage /> },
   {
     path: "/wishlist",
     element: (
-      <WishlistProvider>
-        <WishList />
-      </WishlistProvider>
+      <PrivateRoute
+        element={
+          <WishlistProvider>
+            <WishList />
+          </WishlistProvider>
+        }
+      />
     ),
   },
-  { path: "/userform", element: <Userform /> },
-  { path: "/ownerform", element: <Ownerform /> },
+  { path: "/userform", element: <PrivateRoute element={<Userform />} /> },
+  { path: "/ownerform", element: <PrivateRoute element={<Ownerform />} /> },
   { path: "/contact", element: <Contact /> },
-  { path: "/upload", element: <Uploadform /> },
-  { path: "/owner", element: <Owner /> },
+  { path: "/upload", element: <PrivateRoute element={<Uploadform />} /> },
+  { path: "/owner", element: <PrivateRoute element={<Owner />} /> },
   { path: "/details/:id", element: <PropertyDetails1 /> },
-  { path: "/edit/:id", element: <EditProperty /> },
-  { path: "/support", element: <Support /> },
+  { path: "/edit/:id", element: <PrivateRoute element={<EditProperty />} /> },
+  { path: "/support", element: <PrivateRoute element={<Support />} /> },
   { path: "/provider", element: <Provider /> },
   { path: "/accomodations", element: <Accomodations /> },
-  { path: "/deactivated", element: <Dectivated /> },
-  { path: "/user", element: <User /> },
+  { path: "/deactivated", element: <PrivateRoute element={<Dectivated />} /> },
+  { path: "/user", element: <PrivateRoute element={<User />} /> },
 ]);
 
 export default router;

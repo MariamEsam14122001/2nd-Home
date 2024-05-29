@@ -96,6 +96,8 @@ const Signup = () => {
           "http://localhost:8000/api/register",
           { ...formData, user_type: userType }
         );
+        localStorage.setItem("authToken", response.data.token);
+
         console.log("Admin signup successful:", response.data);
         // Redirect to admin dashboard page
         navigate("/Admin");
@@ -106,6 +108,7 @@ const Signup = () => {
           "http://localhost:8000/api/register",
           { ...formData, user_type: userType }
         );
+        localStorage.setItem("authToken", response.data.token);
         console.log("Signup successful:", response.data);
         if (userType === "user") {
           navigate("/");

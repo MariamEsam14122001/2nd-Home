@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import styles from "./user.module.css";
 import Photos from "../../componets/photo/Photo";
 import img from "./prof.png";
-
+import LogoutButton from "../../componets/logoutButton/LogoutButton.jsx";
 //import { Link } from "react-router-dom";
 //import { useNavigate } from "react-router-dom";
 //import { useParams } from "react-router-dom";
@@ -51,6 +51,9 @@ const Userform = (props) => {
   return (
     <div styles={{ width: "400px", position: "relative" }}>
       <Photos />
+      <div className={styles["button1"]}>
+        <LogoutButton />
+      </div>
 
       <form onSubmit={handleSubmit}>
         <div className={styles["form"]}>

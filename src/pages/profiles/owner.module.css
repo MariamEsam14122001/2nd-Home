@@ -133,7 +133,7 @@
 
 .button3 {
   cursor: pointer;
-  top: 600px;
+  top: 550px;
   left: 1075px;
   width: 300px;
   height: 40px;
@@ -143,6 +143,19 @@
   align-items: flex-start;
   flex-shrink: 1;
   background-color: rgba(9, 192, 248, 0.507);
+}
+
+.logout {
+  cursor: pointer;
+  top: 650px;
+  left: 1125px;
+  
+  display: flex;
+  position: absolute;
+  
+  align-items: flex-start;
+  flex-shrink: 1;
+ 
 }
 
 .accountsetting {

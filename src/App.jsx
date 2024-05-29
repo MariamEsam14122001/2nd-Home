@@ -1,9 +1,8 @@
 import Home from "./pages/Home/Home.jsx";
-import PropertyDetails from "./pages/property details/Propperty.jsx";
-import Admin from "./pages/Admin/dashboard/AdminDashboard.jsx";
+import Userform from "./pages/profiles/Ownerr.jsx";
 
 function App() {
-  return <Admin />;
+  return <Home />;
 }
 
 export default App;

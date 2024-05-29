@@ -299,3 +299,17 @@
   border-width: 1px;
   border-radius: 6px;
 }
+
+
+.button1 {
+  top: 450px;
+  left: 1120px;
+ 
+  cursor: pointer;
+ 
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+  
+}

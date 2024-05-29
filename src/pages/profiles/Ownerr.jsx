@@ -3,9 +3,9 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 import styles from "./owner.module.css";
-import Photos from "../../componets/photo/Photo.jsx" ;
+import Photos from "../../componets/photo/Photo.jsx";
 import img from "../profiles/prof.png";
-
+import LogoutButton from "../../componets/logoutButton/LogoutButton.jsx";
 //import { Link } from "react-router-dom";
 //import { useNavigate } from "react-router-dom";
 //import { useParams } from "react-router-dom";
@@ -49,14 +49,18 @@ const Ownerform = (props) => {
       <form onSubmit={handleSubmit}>
         <Photos />
 
-       <Link to="/upload"> <button
-          name="Uload Properities"
-          id="Uload Properities"
-          type="submit"
-          className={styles["button2"]}
-        >
-          <span className={styles["acccountsetting"]}>Upload Properities</span>
-        </button>
+        <Link to="/upload">
+          {" "}
+          <button
+            name="Uload Properities"
+            id="Uload Properities"
+            type="submit"
+            className={styles["button2"]}
+          >
+            <span className={styles["acccountsetting"]}>
+              Upload Properities
+            </span>
+          </button>
         </Link>
 
         <button
@@ -67,6 +71,11 @@ const Ownerform = (props) => {
         >
           <span className={styles["acccountsetting"]}>Properities</span>
         </button>
+
+        <div className={styles["logout"]}>
+          <LogoutButton />
+        </div>
+
         <div className={styles["form"]}>
           <span className={styles["userprofile"]}>Owner profile</span>
           <div className={styles["full-name"]}>
