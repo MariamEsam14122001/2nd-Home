@@ -17,14 +17,14 @@ const Userform = (props) => {
   /* const { userType } = useParams();*/
   /* const navigate = useNavigate();*/
   const [formData, setFormData] = useState({
-    nameinput: "",
-    emailinput: "",
-    passwordinput: "",
-    statusinput: "",
-    genderinput: "",
-    ageinput: "",
-    cityinput: "",
-    phoneinput: "",
+    name: "",
+    email: "",
+
+    status: "",
+    gender: "",
+    age: "",
+
+    phone: "",
   });
 
   const handleChange = (e) => {
@@ -39,9 +39,12 @@ const Userform = (props) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:8000/api/register", {
-        ...formData,
-      });
+      const response = await axios.post(
+        "http://localhost:8000/api/user/profile",
+        {
+          ...formData,
+        }
+      );
       console.log("upload image successful:", response.data);
       /*navigate("/");*/
     } catch (error) {
@@ -65,9 +68,9 @@ const Userform = (props) => {
           </div>
           <input
             onChange={handleChange}
-            name="nameinput"
-            value={formData.nameinput}
-            id="nameinput"
+            name="name"
+            value={formData.name}
+            id="name"
             type="text"
             className={styles["nameinput"]}
           />
@@ -78,22 +81,22 @@ const Userform = (props) => {
 
           <input
             onChange={handleChange}
-            name="emailinput"
-            value={formData.emailinput}
-            id="emailinput"
+            name="email"
+            value={formData.email}
+            id="email"
             type="text"
             className={styles["emailinput"]}
           />
 
           <div className={styles["password"]}>
             <span className={styles["password1"]}>Password</span>
-          </div>
+          </div> 
 
-          <input
+           <input
             onChange={handleChange}
-            name="passwordinput"
-            value={formData.passwordinput}
-            id="passwordinput"
+            name="password"
+            value={formData.password}
+            id="password"
             type="text"
             className={styles["passwordinput"]}
           />
@@ -104,9 +107,9 @@ const Userform = (props) => {
 
           <input
             onChange={handleChange}
-            name="statusinput"
-            value={formData.statusinput}
-            id="statusinput"
+            name="status"
+            value={formData.status}
+            id="status"
             type="text"
             className={styles["statusinput"]}
           />
@@ -114,9 +117,9 @@ const Userform = (props) => {
 
           <input
             onChange={handleChange}
-            name="genderinput"
-            value={formData.genderinput}
-            id="genderinput"
+            name="gender"
+            value={formData.gender}
+            id="gender"
             type="text"
             className={styles["genderinput"]}
           />
@@ -127,9 +130,9 @@ const Userform = (props) => {
 
           <input
             onChange={handleChange}
-            name="ageinput"
-            value={formData.ageinput}
-            id="ageinput"
+            name="age"
+            value={formData.age}
+            id="age"
             type="text"
             className={styles["ageinput"]}
           />
@@ -140,9 +143,9 @@ const Userform = (props) => {
 
           <input
             onChange={handleChange}
-            name="cityinput"
-            value={formData.cityinput}
-            id="cityinput"
+            name="city"
+            value={formData.city}
+            id="city"
             type="text"
             className={styles["cityinput"]}
           />
@@ -152,9 +155,9 @@ const Userform = (props) => {
 
           <input
             onChange={handleChange}
-            name="phoneinput"
-            value={formData.phoneinput}
-            id="phoneinput"
+            name="phone"
+            value={formData.phone}
+            id="phone"
             type="text"
             className={styles["phoneinput"]}
           />

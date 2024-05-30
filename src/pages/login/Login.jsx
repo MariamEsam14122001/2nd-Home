@@ -11,6 +11,7 @@ import { setAuthToken } from "../../redux/authSlice";
 
 function Login() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [formData, setFormData] = useState({
     email: "",
     password: "",

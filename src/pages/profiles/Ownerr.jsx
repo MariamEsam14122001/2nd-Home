@@ -16,9 +16,9 @@ const Ownerform = (props) => {
   /* const { userType } = useParams();*/
   /* const navigate = useNavigate();*/
   const [formData, setFormData] = useState({
-    nameinput: "",
-    emailinput: "",
-    passwordinput: "",
+    name: "",
+    email: "",
+    phone: "",
   });
 
   const handleChange = (e) => {
@@ -33,9 +33,12 @@ const Ownerform = (props) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:8000/api/register", {
-        ...formData,
-      });
+      const response = await axios.post(
+        "http://localhost:8000/api/owner/profile",
+        {
+          ...formData,
+        }
+      );
       console.log("upload image successful:", response.data);
       /*navigate("/");*/
     } catch (error) {
@@ -83,9 +86,9 @@ const Ownerform = (props) => {
           </div>
           <input
             onChange={handleChange}
-            name="nameinput"
-            value={formData.nameinput}
-            id="nameinput"
+            name="name"
+            value={formData.name}
+            id="name"
             type="text"
             className={styles["nameinput"]}
           />
@@ -96,22 +99,22 @@ const Ownerform = (props) => {
 
           <input
             onChange={handleChange}
-            name="emailinput"
-            value={formData.emailinput}
-            id="emailinput"
+            name="email"
+            value={formData.email}
+            id="email"
             type="text"
             className={styles["emailinput"]}
           />
 
           <div className={styles["password"]}>
-            <span className={styles["password1"]}>Password</span>
+            <span className={styles["password1"]}>Phone</span>
           </div>
 
           <input
             onChange={handleChange}
-            name="passwordinput"
-            value={formData.passwordinput}
-            id="passwordinput"
+            name="phone"
+            value={formData.phone}
+            id="phone"
             type="text"
             className={styles["passwordinput"]}
           />

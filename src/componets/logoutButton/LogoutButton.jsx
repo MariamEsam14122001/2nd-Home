@@ -7,7 +7,7 @@ import { logout } from "../../redux/authSlice";
 const handleLogout = async (dispatch) => {
   try {
     await axios.post(
-      "/api/logout",
+      "http://localhost:8000/api/logout",
       {},
       {
         headers: {
