@@ -10,6 +10,8 @@ import LogoutButton from "../../componets/logoutButton/LogoutButton.jsx";
 //import { useNavigate } from "react-router-dom";
 //import { useParams } from "react-router-dom";
 import axios from "axios";
+import { Line } from "three";
+import { Link } from "react-router-dom";
 
 const Userform = (props) => {
   /* const { userType } = useParams();*/
@@ -157,14 +159,16 @@ const Userform = (props) => {
             className={styles["phoneinput"]}
           />
 
-          <button
-            name="setting"
-            id="setting"
-            type="submit"
-            className={styles["button"]}
-          >
-            <span className={styles["accountsetting"]}>Account Setting</span>
-          </button>
+          <Link to="/userform">
+            <button
+              name="setting"
+              id="setting"
+              type="submit"
+              className={styles["button"]}
+            >
+              <span className={styles["accountsetting"]}>Account Setting</span>
+            </button>
+          </Link>
         </div>
       </form>
     </div>

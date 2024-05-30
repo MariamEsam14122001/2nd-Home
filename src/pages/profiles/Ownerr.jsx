@@ -116,14 +116,17 @@ const Ownerform = (props) => {
             className={styles["passwordinput"]}
           />
 
-          <button
-            name="setting"
-            id="setting"
-            type="submit"
-            className={styles["button"]}
-          >
-            <span className={styles["accountsetting"]}>Account Setting</span>
-          </button>
+          <Link to="/ownerform">
+            {" "}
+            <button
+              name="setting"
+              id="setting"
+              type="submit"
+              className={styles["button"]}
+            >
+              <span className={styles["accountsetting"]}>Account Setting</span>
+            </button>
+          </Link>
         </div>
       </form>
     </div>
