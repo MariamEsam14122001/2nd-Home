@@ -6,6 +6,8 @@ import img from "./logsign.png";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { setAuthToken } from "../../redux/authSlice";
 
 function Login() {
   const navigate = useNavigate();
@@ -30,12 +32,12 @@ function Login() {
         "http://localhost:8000/api/login",
         formData
       );
-      localStorage.setItem("authToken", response.data.token);
+      const token = response.data.token;
+      localStorage.setItem("authToken", token);
+      dispatch(setAuthToken(token));
       console.log("Login successful:", response.data);
 
-      const userType = response.data.userType; // Assuming the backend provides user type upon successful login
-
-      //const email = response.data.email;
+      const userType = response.data.userType;
       const email = formData.email;
 
       if (email.endsWith("@example.com")) {
@@ -101,7 +103,7 @@ function Login() {
               </Link>
             </div>
             <Link to="/" className={styles["home"]}>
-              Go Home
+              Go back to Home
             </Link>
           </div>
         </div>

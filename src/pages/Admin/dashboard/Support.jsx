@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 //import styles from "./AdminDashboard.module.css";
 //import { Link } from "react-router-dom";
-import Side from "./Sidebarcomponents";
+import Header from "../../../componets/header/Header";
 import Question from "../dashboard/compo/Question";
 
 const Support = () => {
@@ -44,7 +44,7 @@ const Support = () => {
 
   return (
     <div>
-      <Side />
+      <Header />
       <div>
         {questions.map((q, index) => (
           <Question

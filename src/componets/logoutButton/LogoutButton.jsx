@@ -1,10 +1,12 @@
 import React from "react";
 import axios from "axios";
 import styles from "./logout.module.css";
+import { useDispatch } from "react-redux";
+import { logout } from "../../redux/authSlice";
 
-const handleLogout = () => {
-  axios
-    .post(
+const handleLogout = async (dispatch) => {
+  try {
+    await axios.post(
       "/api/logout",
       {},
       {
@@ -12,25 +14,30 @@ const handleLogout = () => {
           Authorization: localStorage.getItem("authToken"),
         },
       }
-    )
-    .then((response) => {
-      // Clear tokens from localStorage/sessionStorage or cookies
-      localStorage.removeItem("authToken");
-      sessionStorage.removeItem("authToken");
-      document.cookie = "authToken=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+    );
+    // Clear tokens from localStorage/sessionStorage or cookies
+    localStorage.removeItem("authToken");
+    sessionStorage.removeItem("authToken");
+    document.cookie = "authToken=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
 
-      // Redirect to the login page
-      window.location.href = "/";
-    })
-    .catch((error) => {
-      console.error("There was an error logging out!", error);
-    });
+    dispatch(logout()); // Dispatch the logout action to Redux
+
+    // Redirect to the home page
+    window.location.href = "/";
+  } catch (error) {
+    console.error("There was an error logging out!", error);
+  }
 };
 
 const LogoutButton = () => {
+  const dispatch = useDispatch(); // Initialize the dispatch function
+
   return (
     <>
-      <button className={styles["button"]} onClick={handleLogout}>
+      <button
+        className={styles["button"]}
+        onClick={() => handleLogout(dispatch)}
+      >
         <span className={styles["logout"]}>Logout</span>
       </button>
     </>

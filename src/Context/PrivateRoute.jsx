@@ -1,10 +1,13 @@
+// src/Context/PrivateRoute.jsx
+
 import React from "react";
+import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 
-const PrivateRoute = ({ element: Component }) => {
-  const isAuthenticated = !!localStorage.getItem("authToken"); // Check authentication
+const PrivateRoute = ({ element }) => {
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
 
-  return isAuthenticated ? Component : <Navigate to="/Login" />;
+  return isAuthenticated ? element : <Navigate to="/Login" />;
 };
 
 export default PrivateRoute;

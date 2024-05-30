@@ -5,6 +5,8 @@ import styles from "./signup.module.css";
 import img from "./logsign.png";
 import { Link } from "react-router-dom";
 import { useNavigate, useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setAuthToken } from "../../redux/authSlice";
 
 const Signup = () => {
   const cities = [
@@ -61,6 +63,8 @@ const Signup = () => {
   const status = ["shared", "single"];
   const { userType } = useParams();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -88,33 +92,20 @@ const Signup = () => {
     e.preventDefault();
 
     try {
-      // Check if the entered email belongs to an admin
-      if (formData.email.endsWith("@example.com")) {
-        // Handle admin sign up
-        console.log("Admin signing up...");
-        const response = await axios.post(
-          "http://localhost:8000/api/register",
-          { ...formData, user_type: userType }
-        );
-        localStorage.setItem("authToken", response.data.token);
+      const response = await axios.post("http://localhost:8000/api/register", {
+        ...formData,
+        user_type: userType,
+      });
+      localStorage.setItem("authToken", response.data.token);
+      dispatch(setAuthToken(response.data.token)); // Dispatch the token to Redux
+      console.log("Signup successful:", response.data);
 
-        console.log("Admin signup successful:", response.data);
-        // Redirect to admin dashboard page
+      if (formData.email.endsWith("@example.com")) {
         navigate("/Admin");
-      } else {
-        // Proceed with regular user or owner sign up
-        console.log("Regular user or owner signing up...");
-        const response = await axios.post(
-          "http://localhost:8000/api/register",
-          { ...formData, user_type: userType }
-        );
-        localStorage.setItem("authToken", response.data.token);
-        console.log("Signup successful:", response.data);
-        if (userType === "user") {
-          navigate("/");
-        } else if (userType === "owner") {
-          navigate("/owner");
-        }
+      } else if (userType === "user") {
+        navigate("/");
+      } else if (userType === "owner") {
+        navigate("/owner");
       }
     } catch (error) {
       console.error("Signup failed:", error);
@@ -291,3 +282,43 @@ const Signup = () => {
 };
 
 export default Signup;
+
+// const handleSubmit = async (e) => {
+//   e.preventDefault();
+
+//   try {
+//     // Check if the entered email belongs to an admin
+//     if (formData.email.endsWith("@example.com")) {
+//       // Handle admin sign up
+//       console.log("Admin signing up...");
+//       const response = await axios.post(
+//         "http://localhost:8000/api/register",
+//         { ...formData, user_type: userType }
+//       );
+//       localStorage.setItem("authToken", response.data.token);
+
+//       console.log("Admin signup successful:", response.data);
+//       // Redirect to admin dashboard page
+//       navigate("/Admin");
+//     } else {
+//       // Proceed with regular user or owner sign up
+//       console.log("Regular user or owner signing up...");
+//       const response = await axios.post(
+//         "http://localhost:8000/api/register",
+//         { ...formData, user_type: userType }
+//       );
+//       localStorage.setItem("authToken", response.data.token);
+//       console.log("Signup successful:", response.data);
+//       if (userType === "user") {
+//         navigate("/");
+//       } else if (userType === "owner") {
+//         navigate("/owner");
+//       }
+//     }
+//   } catch (error) {
+//     console.error("Signup failed:", error);
+//     setError(
+//       error.response.data.message || "An error occurred during registration."
+//     );
+//   }
+// };

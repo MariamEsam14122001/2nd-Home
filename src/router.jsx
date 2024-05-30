@@ -47,7 +47,7 @@ const router = createBrowserRouter([
   { path: "/owner", element: <PrivateRoute element={<Owner />} /> },
   { path: "/details/:id", element: <PropertyDetails1 /> },
   { path: "/edit/:id", element: <PrivateRoute element={<EditProperty />} /> },
-  { path: "/support", element: <PrivateRoute element={<Support />} /> },
+  { path: "/support", element: <Support /> },
   { path: "/provider", element: <Provider /> },
   { path: "/accomodations", element: <Accomodations /> },
   { path: "/deactivated", element: <PrivateRoute element={<Dectivated />} /> },
